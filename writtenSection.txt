@@ -2,27 +2,67 @@ Answer each question in a written format
 
 1. What does semantic HTML mean?
 
+    Semantic HTML refers to the descriptive HTML tags, e.g. Header, Footer, Nav, P, Title, Body, Section. 
+    Semantic is important for document legibility. Search engines use these tags to sort websites. Website readers, such as for the visually impaired also use these.
+
 2. What is the box model?
+
+    In CSS, the box model is a way of treating page elements. Each element has a margin, border, padding, content (from outermost to inmost).
+    A useful setting related to the box model is: box-sizing: border-box, which makes borders included within the element's spatial dimensions. 
 
 3. What is the difference between IDs and Classes?
 
+    These perform the same function except that IDs are unique.
+
 4. What does the z-index do?
+
+    The z-index represents the third spatial dimension in displaying HTML elements. So an element with a higher z-index will appear "in front of" elements with a lower z-index in the same space. 
 
 5. Summarize what the keyword 'this' is used for?
 
+    The keyword 'this,' is used to refer to the object in whose scope a function is written. 
+    Bind can set the 'this' value in a function to a specific context.
+    Call and apply can by used as a way of calling a fuction while passing in an object for its 'this' to refer to.
+    'This' is also used in Object Constructors and Class Constructors to refer to the Object to be created.
+
 6. What is a callback?
+
+    A callback is a function that is passed in as a parameter to another function. For example, iterative functions, such as Array.map, make use of callback functions. 
 
 7. What is a closure?
 
+    A closure is a function within a function. If returned, it preserves a copy of the scope of its parent function. 
+
 8. How does prototype work?
+
+    Objects inherit prototype methods and values. Using prototype you can assign values and functions to Objects. It is advisable to only modify your own prototypes, but it is possible to redine standard Javascript prototypes.
+    Prototypes can be set inside or outside of the Constructor. (If inside, use this.prototpye, if outside use [Objectname].prototype.)
+    Prototype is a property of the Constructor, not of the individual instance. 
 
 9. What is MVC?
 
+    MVC stands for Model-View-Controller. This is a software pattern where the user sees the Model and interacts through the Controller. The Controller manipulates the Model, which then renders the View. 
+
 10. What is the component lifecycle?
+
+    React components follow a lifecycle pattern where the component is mounted to the virtual DOM and then unmounted. There are methods available that occur at specific points in a component's lifecycle, for example, 
+    Constructor, componentWillMount, render, componentDidMount. 
+    Render is where the component is mounted to the virtual DOM, and is triggered everytime state is set or forceUpdate is called. 
+    componentWillRecieveProps, componentWillUpdate and componentDidUpdate can be used when a component rerender is triggered.
+    componentShouldUpdate can be used to controll which changes will trigger a rerender.
 
 11. What is REST?
 
+    REST stands for Representational State Transfer. This is a model used for web services to communicate with each other. 
+    REST is language independent and uses the standard HTTP status codes.  
+
 12. Name three ways of getting data from the URL using express
+
+    1. Setting an endpoint to be hit by a specific url ( app.get('/api/users') )
+    using the request object's params and queries
+    2. Using request.params  ('/api/user/:id')
+    3. Using request.query     ('/api/user/?name="nate"')
+
 
 create table users (
 id serial,
@@ -32,10 +72,19 @@ email varchar(255)
 
 12. Given the Schema above, write the following four basic CRUD db queries using postgres syntax
 
+
+
+
 -Get all users:
+    select * from users;
 
 -Create a new user with the name of 'your name' and an email of 'fake@fake.com':
+    insert into users (name, email) 
+    values("your name", "fake@fake.com");
 
 -Update the newly created user's name to 'Bobby Boy':
+    update table users 
+    set name = "Bobby Boy" where email = "fake@fake.com";
 
 -Delete the newly updated user:
+    delete from users where email="fake@fake.com";
